@@ -28,9 +28,14 @@ public class UserController {
         var userFound = this.userService.findById(id);
         return ResponseEntity.ok(userFound);
     }
-    @PutMapping("/{id}")
-    public ResponseEntity<User> updateById(@PathVariable Long id, @RequestBody User user){
-        var userModify = this.userService.updateByID(id, user.getEmail());
+    @PutMapping
+    public ResponseEntity<User> updateById(@RequestBody User user){
+        var userModify = this.userService.updateById(user);
         return ResponseEntity.ok(userModify);
+    }
+
+    @DeleteMapping
+    public  void deleteById(Long id){
+        this.userService.deleteById( id);
     }
 }

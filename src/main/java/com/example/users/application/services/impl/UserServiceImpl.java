@@ -18,20 +18,20 @@ public class UserServiceImpl implements UserService {
         return this.userRepository.save(user);
     }
 
+    @Override
     public  User findById(Long id){
         return this.userRepository.findById(id).get();
     }
+
+    @Override
     public void deleteById(Long id){
         this.userRepository.deleteById(id);
     }
 
-    public User updateById(Long Id, String email){
-        var user = this.userRepository.findById(Id).get();
-        if(user != null){
-            user.setEmail(email);
-            saveUser(user);
-        }
-        return user;
+    @Override
+    public User updateById(User user){
+        return this.userRepository.save(user);
     }
+
 
 }

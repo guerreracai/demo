@@ -8,6 +8,6 @@ public interface UserService {
 
     void deleteById(Long id);
 
-    User updateById (Long id, String email);
+    User updateById (User user);
 
 }
